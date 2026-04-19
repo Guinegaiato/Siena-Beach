@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siena Beach Club</title>
+    <!-- Fontes -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+              display: ['Outfit', 'sans-serif'],
+            },
+            colors: {
+              ocean: '#0f172a',
+              gold: '#d4af37',
+              'gold-light': '#fef3c7',
+              sand: '#f8fafc',
+            }
+          }
+        }
+      }
+    </script>
+    <!-- Estilos Customizados -->
+    <style type="text/tailwindcss">
+      @layer base {
+        body {
+          @apply bg-white font-sans text-ocean antialiased;
+        }
+        h1, h2, h3, h4, h5, h6 {
+          @apply font-display tracking-tight;
+        }
+      }
+      .glass {
+        @apply backdrop-blur-xl bg-white/70 border border-white/20;
+      }
+      .btn-gold {
+        @apply bg-gold text-white px-8 py-4 rounded-full font-bold uppercase tracking-wider text-sm transition-all hover:bg-gold/90 hover:shadow-xl hover:-translate-y-0.5 active:scale-95 inline-flex items-center justify-center;
+      }
+      .card-modern {
+        @apply bg-white rounded-[2rem] p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-50 transition-all hover:shadow-[0_20px_50px_rgba(0,0,0,0.1)] hover:-translate-y-1;
+      }
+      .container-custom {
+        @apply max-w-7xl mx-auto px-6 sm:px-8 lg:px-12;
+      }
+      .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      }
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+    <!-- Ícones Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="relative min-h-screen bg-white text-ocean">
+
+  <!-- NAVBAR -->
+  <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-6 bg-transparent">
+    <div class="container-custom flex justify-between items-center">
+      <div id="logo-text" class="text-2xl font-display font-black tracking-tighter text-white">
+        SIENA <span class="text-gold">BEACH</span> CLUB
+      </div>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#sobre" class="nav-link text-xs font-bold uppercase tracking-widest hover:text-gold transition-colors text-white">O Clube</a>
+        <a href="#aulas" class="nav-link text-xs font-bold uppercase tracking-widest hover:text-gold transition-colors text-white">Aulas</a>
+        <a href="#horarios" class="nav-link text-xs font-bold uppercase tracking-widest hover:text-gold transition-colors text-white">Horários</a>
+        <a href="#beneficios" class="nav-link text-xs font-bold uppercase tracking-widest hover:text-gold transition-colors text-white">Benefícios</a>
+        <a href="#galeria" class="nav-link text-xs font-bold uppercase tracking-widest hover:text-gold transition-colors text-white">Galeria</a>
+        <a href="https://wa.me/5512988615533" target="_blank" class="btn-gold !py-2.5 !px-6 !text-[11px]">Reservar</a>
+      </div>
+      <!-- Menu Mobile -->
+      <div class="md:hidden flex items-center">
+        <button id="mobile-menu-btn" class="text-white p-2">
+          <i data-lucide="menu"></i>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile dropdown -->
+    <div id="mobile-menu" class="hidden bg-white overflow-hidden border-t border-gray-100 absolute top-full left-0 w-full">
+      <div class="flex flex-col p-6 gap-4">
+        <a href="#sobre" class="text-lg font-serif font-medium mobile-link">O Clube</a>
+        <a href="#aulas" class="text-lg font-serif font-medium mobile-link">Aulas</a>
+        <a href="#horarios" class="text-lg font-serif font-medium mobile-link">Horários</a>
+        <a href="#beneficios" class="text-lg font-serif font-medium mobile-link">Benefícios</a>
+        <a href="#galeria" class="text-lg font-serif font-medium mobile-link">Galeria</a>
+        <a href="https://wa.me/5512988615533" target="_blank" class="bg-gold text-white text-center py-4 rounded-xl font-bold uppercase tracking-widest mt-2 shadow-md">Agendar via WhatsApp</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="relative h-screen w-full flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img src="Whisk_7868f0a616c22fc9b364ac05999d776fdr.png" alt="Beach Tennis Quadra" class="w-full h-full object-cover">
+      <div class="absolute inset-0 bg-gradient-to-b from-ocean/40 via-ocean/20 to-ocean/80"></div>
+    </div>
+    <div class="container-custom relative z-10 text-center text-white fade-in">
+      <span class="inline-block px-4 py-1.5 mb-6 text-xs font-bold uppercase tracking-[0.3em] bg-white/10 backdrop-blur-md rounded-full border border-white/20">A Experiência Premium Definitiva</span>
+      <h1 class="text-6xl md:text-9xl font-display font-black mb-6 tracking-tighter leading-none">SIENA <span class="text-gold italic font-medium">BEACH</span> CLUB</h1>
+      <p class="text-xl md:text-2xl font-light mb-12 max-w-2xl mx-auto opacity-90 leading-relaxed font-sans">Excelência em Beach Tennis na melhor areia da cidade. Aulas particulares com estrutura profissional e atendimento exclusivo.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a href="https://wa.me/5512988615533" target="_blank" class="btn-gold flex items-center gap-3 shadow-[0_20px_60px_rgba(212,175,55,0.4)]">
+          <i data-lucide="message-circle" class="w-5 h-5 text-white"></i> Agendar Aula no WhatsApp
+        </a>
+        <a href="#sobre" class="px-8 py-4 rounded-full font-bold uppercase tracking-widest text-sm border border-white/30 backdrop-blur-sm transition-all hover:bg-white/20">Conhecer o Clube</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="sobre" class="py-24 bg-white">
+    <div class="container-custom">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div class="fade-in">
+          <span class="text-gold font-bold uppercase tracking-widest text-xs mb-4 block">Sobre o Clube</span>
+          <h2 class="text-4xl md:text-5xl font-bold mb-8 leading-tight text-ocean">Onde o esporte se <br>encontra com a <span class="text-gold italic">sofisticação</span>.</h2>
+          <p class="text-gray-600 text-lg mb-8 leading-relaxed">O Siena Beach Club foi idealizado pelo professor Luís para oferecer mais do que apenas aulas de Beach Tennis. Aqui, cultivamos um estilo de vida focado no bem-estar, evolução técnica e construção de conexões em um ambiente de alto padrão.</p>
+          <p class="text-gray-600 text-lg mb-10 leading-relaxed italic">"Nossa missão é proporcionar uma experiência de treinamento personalizada, onde cada detalhe da nossa estrutura foi pensado para o seu máximo desempenho e conforto."</p>
+          <div class="flex items-center gap-4">
+            <div class="w-16 h-16 rounded-full overflow-hidden bg-gray-200">
+              <img src="filipo2.jpeg" alt="Professor Luís" class="w-full h-full object-cover">
+            </div>
+            <div>
+              <p class="font-bold text-ocean">Professor Luís</p>
+              <p class="text-sm text-gray-500 uppercase tracking-widest font-medium">Fundador & Head Coach</p>
+            </div>
+          </div>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-8">
+          <div class="card-modern fade-in">
+            <div class="mb-6 bg-gold/10 w-16 h-16 rounded-2xl flex items-center justify-center"><i data-lucide="award" class="text-gold w-8 h-8"></i></div>
+            <h3 class="text-xl font-bold mb-3 text-ocean">2 Quadras Profissionais</h3>
+            <p class="text-gray-500 text-sm leading-relaxed font-sans">Espaço amplo com dimensões oficiais para treinos de alta performance.</p>
+          </div>
+          <div class="card-modern fade-in">
+            <div class="mb-6 bg-gold/10 w-16 h-16 rounded-2xl flex items-center justify-center"><i data-lucide="sun" class="text-gold w-8 h-8"></i></div>
+            <h3 class="text-xl font-bold mb-3 text-ocean">Areia Premium</h3>
+            <p class="text-gray-500 text-sm leading-relaxed font-sans">Areia especial de quartzo que não aquece, proporcionando conforto térmico total.</p>
+          </div>
+          <div class="card-modern fade-in">
+            <div class="mb-6 bg-gold/10 w-16 h-16 rounded-2xl flex items-center justify-center"><i data-lucide="shield-check" class="text-gold w-8 h-8"></i></div>
+            <h3 class="text-xl font-bold mb-3 text-ocean">Vestiários Completos</h3>
+            <p class="text-gray-500 text-sm leading-relaxed font-sans">Estrutura moderna com chuveiros e armários para sua total comodidade.</p>
+          </div>
+          <div class="card-modern fade-in">
+            <div class="mb-6 bg-gold/10 w-16 h-16 rounded-2xl flex items-center justify-center"><i data-lucide="compass" class="text-gold w-8 h-8"></i></div>
+            <h3 class="text-xl font-bold mb-3 text-ocean">Ambiente Exclusivo</h3>
+            <p class="text-gray-500 text-sm leading-relaxed font-sans">Clima de Beach Club sofisticado para relaxar e praticar seu esporte favorito.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLASSES -->
+  <section id="aulas" class="py-24 bg-sand relative overflow-hidden">
+    <div class="container-custom relative z-10">
+      <div class="flex flex-col items-center text-center mb-16 fade-in">
+        <span class="text-gold font-bold uppercase tracking-widest text-xs mb-4">Nossas Aulas</span>
+        <h2 class="text-4xl md:text-5xl font-black mb-6">Treinamento <span class="text-gold italic">Personalizado</span></h2>
+        <p class="text-gray-500 max-w-2xl text-lg font-sans leading-relaxed">Método focado em resultados rápidos, independente do seu ponto de partida. Do iniciante ao profissional, temos o plano ideal.</p>
+      </div>
+      <div class="grid lg:grid-cols-2 gap-12 items-center fade-in">
+        <div class="relative rounded-[3rem] overflow-hidden group shadow-2xl">
+          <img src="filipo2.jpeg" alt="Treinamento" class="w-full h-[500px] object-cover transition-transform duration-700 hover:scale-105">
+          <div class="absolute bottom-6 left-6 right-6 p-8 glass rounded-[2rem]">
+            <div class="flex justify-between items-center">
+              <div>
+                <h3 class="text-2xl font-black mb-1 italic">Aula Particular</h3>
+                <p class="text-xs text-ocean/60 uppercase tracking-widest font-bold">Experiência Platinum</p>
+              </div>
+              <div class="text-right">
+                <span class="text-[10px] uppercase tracking-widest text-ocean/50 font-bold">Investimento</span>
+                <p class="text-3xl font-black text-gold">R$ 250</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col gap-10">
+          <div class="grid sm:grid-cols-2 gap-6">
+            <div class="flex items-center gap-4 bg-white p-6 rounded-2xl shadow-sm"><div class="bg-gold text-white p-2 rounded-full"><i data-lucide="check" class="w-4 h-4"></i></div><span class="text-sm font-bold tracking-tight text-ocean">Aulas individuais ou dupla</span></div>
+            <div class="flex items-center gap-4 bg-white p-6 rounded-2xl shadow-sm"><div class="bg-gold text-white p-2 rounded-full"><i data-lucide="check" class="w-4 h-4"></i></div><span class="text-sm font-bold tracking-tight text-ocean">Correção técnica em tempo real</span></div>
+            <div class="flex items-center gap-4 bg-white p-6 rounded-2xl shadow-sm"><div class="bg-gold text-white p-2 rounded-full"><i data-lucide="check" class="w-4 h-4"></i></div><span class="text-sm font-bold tracking-tight text-ocean">Metodologia Prof. Luís</span></div>
+            <div class="flex items-center gap-4 bg-white p-6 rounded-2xl shadow-sm"><div class="bg-gold text-white p-2 rounded-full"><i data-lucide="check" class="w-4 h-4"></i></div><span class="text-sm font-bold tracking-tight text-ocean">Foco em evolução tática</span></div>
+            <div class="flex items-center gap-4 bg-white p-6 rounded-2xl shadow-sm"><div class="bg-gold text-white p-2 rounded-full"><i data-lucide="check" class="w-4 h-4"></i></div><span class="text-sm font-bold tracking-tight text-ocean">Raquetes premium inclusas</span></div>
+            <div class="flex items-center gap-4 bg-white p-6 rounded-2xl shadow-sm"><div class="bg-gold text-white p-2 rounded-full"><i data-lucide="check" class="w-4 h-4"></i></div><span class="text-sm font-bold tracking-tight text-ocean">Ambiente climatizado</span></div>
+          </div>
+          <a href="https://wa.me/5512988615533" target="_blank" class="btn-gold text-center py-6 shadow-[0_20px_40px_rgba(212,175,55,0.3)] w-full">Consultar Disponibilidade</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCHEDULES -->
+  <section id="horarios" class="py-24 bg-white relative overflow-hidden">
+    <div class="container-custom">
+      <div class="text-center mb-20 fade-in">
+        <span class="text-gold font-bold uppercase tracking-widest text-xs mb-4 block">Horários & Níveis</span>
+        <h2 class="text-4xl md:text-5xl font-black text-ocean leading-tight">Planeje seu <span class="text-gold italic">Treino</span></h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="card-modern group fade-in">
+          <div class="mb-8 flex justify-between w-full items-center">
+            <div class="text-gold bg-gold/5 p-4 rounded-3xl"><i data-lucide="sunrise" class="w-12 h-12"></i></div>
+            <span class="text-[10px] font-black uppercase tracking-widest text-ocean/40 bg-ocean/5 px-4 py-2 rounded-full">Disponível</span>
+          </div>
+          <h3 class="text-3xl font-display font-black mb-2 text-ocean">07h00</h3>
+          <p class="text-gold font-bold uppercase tracking-[0.2em] text-[10px] mb-6 inline-block">Iniciantes (Manhã)</p>
+          <p class="text-gray-500 text-sm leading-relaxed font-sans mb-8">Ideal para quem está começando agora e quer aprender os fundamentos básicos com frescor matinal.</p>
+          <a href="https://wa.me/5512988615533?text=Olá,%20gostaria%20de%20me%20inscrever%20no%20nível%20Iniciante%20(Manhã)." target="_blank" class="mt-auto w-full pt-6 border-t border-gray-100 flex justify-between items-center text-[10px] font-black uppercase tracking-widest text-gold hover:text-ocean transition-colors">
+            <span>Falar no WhatsApp</span><span class="flex items-center gap-1"><i data-lucide="message-circle" class="w-4 h-4"></i></span>
+          </a>
+        </div>
+        <div class="card-modern group fade-in">
+          <div class="mb-8 flex justify-between w-full items-center">
+            <div class="text-gold bg-gold/5 p-4 rounded-3xl"><i data-lucide="sun" class="w-12 h-12"></i></div>
+            <span class="text-[10px] font-black uppercase tracking-widest text-ocean/40 bg-ocean/5 px-4 py-2 rounded-full">Disponível</span>
+          </div>
+          <h3 class="text-3xl font-display font-black mb-2 text-ocean">09h00</h3>
+          <p class="text-gold font-bold uppercase tracking-[0.2em] text-[10px] mb-6 inline-block">Intermediário (Manhã)</p>
+          <p class="text-gray-500 text-sm leading-relaxed font-sans mb-8">Foco total em evolução técnica, tática de jogo e constância nos movimentos.</p>
+          <a href="https://wa.me/5512988615533?text=Olá,%20gostaria%20de%20me%20inscrever%20no%20nível%20Intermediário%20(Manhã)." target="_blank" class="mt-auto w-full pt-6 border-t border-gray-100 flex justify-between items-center text-[10px] font-black uppercase tracking-widest text-gold hover:text-ocean transition-colors">
+            <span>Falar no WhatsApp</span><span class="flex items-center gap-1"><i data-lucide="message-circle" class="w-4 h-4"></i></span>
+          </a>
+        </div>
+        <div class="card-modern group fade-in">
+          <div class="mb-8 flex justify-between w-full items-center">
+            <div class="text-gold bg-gold/5 p-4 rounded-3xl"><i data-lucide="sun" class="w-12 h-12"></i></div>
+            <span class="text-[10px] font-black uppercase tracking-widest text-ocean/40 bg-ocean/5 px-4 py-2 rounded-full">Disponível</span>
+          </div>
+          <h3 class="text-3xl font-display font-black mb-2 text-ocean">11h00</h3>
+          <p class="text-gold font-bold uppercase tracking-[0.2em] text-[10px] mb-6 inline-block">Profissionais (Manhã)</p>
+          <p class="text-gray-500 text-sm leading-relaxed font-sans mb-8">Treinos intensos para alto desempenho, foco em competition e estratégias avançadas sob o sol.</p>
+          <a href="https://wa.me/5512988615533?text=Olá,%20gostaria%20de%20me%20inscrever%20no%20nível%20Profissional%20(Manhã)." target="_blank" class="mt-auto w-full pt-6 border-t border-gray-100 flex justify-between items-center text-[10px] font-black uppercase tracking-widest text-gold hover:text-ocean transition-colors">
+            <span>Falar no WhatsApp</span><span class="flex items-center gap-1"><i data-lucide="message-circle" class="w-4 h-4"></i></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA & FOOTER -->
+  <section class="py-24 bg-sand">
+    <div class="container-custom">
+      <div class="rounded-[3rem] bg-ocean p-12 md:p-24 overflow-hidden relative shadow-[0_30px_100px_rgba(15,23,42,0.5)] fade-in">
+        <div class="absolute inset-0 opacity-20">
+          <img src="img3.png" class="w-full h-full object-cover">
+        </div>
+        <div class="relative z-10 grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <span class="text-gold font-bold uppercase tracking-[0.3em] text-xs mb-6 block">Matrículas Abertas</span>
+            <h2 class="text-5xl md:text-7xl font-black text-white mb-8 tracking-tighter">Agende sua <br>primeira aula <span class="text-gold italic">agora</span></h2>
+            <p class="text-white/70 text-lg font-sans mb-12 leading-relaxed">Junte-se à elite do Beach Tennis. Estrutura premium, areia especial e treinamento personalizado.</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur-md p-8 rounded-[2rem] border border-white/20">
+            <form id="whatsapp-form" class="flex flex-col gap-5">
+              <div>
+                <label class="text-[10px] font-bold uppercase tracking-[0.2em] text-white/80 mb-2 block">Seu Nome</label>
+                <input type="text" id="wa-nome" required class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-gold transition-colors placeholder-white/30" placeholder="Ex: João Silva">
+              </div>
+              <div>
+                <label class="text-[10px] font-bold uppercase tracking-[0.2em] text-white/80 mb-2 block">Seu Nível</label>
+                <select id="wa-nivel" class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-gold transition-colors appearance-none">
+                  <option value="Iniciante" class="text-ocean">Iniciante</option>
+                  <option value="Intermediário" class="text-ocean">Intermediário</option>
+                  <option value="Profissional" class="text-ocean">Profissional</option>
+                </select>
+              </div>
+              <button type="submit" class="btn-gold mt-2 w-full flex justify-center items-center gap-2">
+                Enviar Inscrição <i data-lucide="send" class="w-4 h-4"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer id="contato" class="bg-white border-t border-gray-100 pt-24 pb-12">
+    <div class="container-custom">
+      <div class="grid lg:grid-cols-4 gap-16 mb-20 fade-in">
+        <div class="lg:col-span-1">
+          <div class="text-2xl font-display font-black tracking-tighter text-ocean mb-8">SIENA <span class="text-gold">BEACH</span> CLUB</div>
+          <p class="text-gray-500 mb-8 leading-relaxed text-sm">A experiência definitiva em Beach Tennis. Transformando qualidade de vida através do esporte premium.</p>
+          <div class="flex gap-4">
+            <a href="https://instagram.com/sienabeachclub" target="_blank" class="w-10 h-10 rounded-xl bg-sand flex items-center justify-center text-gold hover:bg-gold hover:text-white transition-all"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+          </div>
+        </div>
+        <div class="lg:col-span-1">
+          <h4 class="font-bold text-ocean uppercase tracking-widest text-xs mb-8">Localização</h4>
+          <div class="flex gap-4 items-start mb-4">
+            <i data-lucide="map-pin" class="text-gold w-5 h-5 shrink-0"></i>
+            <p class="text-gray-500 text-sm leading-relaxed">Alameda Cristóvão de Barros, 485<br>Porto Novo, Caraguatatuba - SP</p>
+          </div>
+          <div class="flex gap-4 items-center text-gray-500 text-sm">
+            <i data-lucide="phone" class="text-gold w-5 h-5"></i> <span>(12) 98861-5533</span>
+          </div>
+        </div>
+        <div class="lg:col-span-1">
+          <h4 class="font-bold text-ocean uppercase tracking-widest text-xs mb-8">Funcionamento</h4>
+          <div class="p-1 space-y-4">
+            <div class="flex justify-between items-center bg-sand p-3 rounded-xl"><span class="text-[10px] font-bold uppercase text-ocean/60">Seg — Sex</span><span class="text-xs font-black text-ocean">06h — 22h</span></div>
+            <div class="flex justify-between items-center bg-sand p-3 rounded-xl"><span class="text-[10px] font-bold uppercase text-ocean/60">Sábados</span><span class="text-xs font-black text-ocean">08h — 18h</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="pt-12 border-t border-ocean/5 flex flex-col items-center gap-12">
+        <!-- Google Maps Embed -->
+        <div class="w-full h-80 rounded-[2rem] overflow-hidden shadow-xl grayscale hover:grayscale-0 transition-all duration-700">
+          <iframe 
+            width="100%" 
+            height="100%" 
+            style="border: 0;" 
+            src="https://maps.google.com/maps?q=Alameda%20Cristóvão%20de%20Barros,%20485%20-%20Porto%20Novo%20Caraguatatuba&t=&z=16&ie=UTF8&iwloc=&output=embed"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+
+        <div class="w-full flex flex-col md:flex-row justify-between items-center gap-6">
+          <p class="text-gray-400 text-xs text-center font-medium uppercase tracking-[0.2em]">
+            © 2024 SIENA BEACH CLUB. TODOS OS DIREITOS RESERVADOS.
+          </p>
+          <div class="flex gap-8 text-[10px] uppercase font-bold tracking-widest text-gray-400">
+            <a href="#" class="hover:text-gold transition-colors">POLÍTICA DE PRIVACIDADE</a>
+            <a href="#" class="hover:text-gold transition-colors">TERMOS DE USO</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Float -->
+  <a href="https://wa.me/5512988615533" target="_blank" class="fixed bottom-8 right-8 z-[60] bg-[#25D366] text-white p-4 rounded-full shadow-[0_10px_40px_rgba(37,211,102,0.4)] flex items-center justify-center hover:scale-110 transition-transform">
+    <i data-lucide="message-circle" class="w-8 h-8"></i>
+  </a>
+
+  <!-- Scripts -->
+  <script>
+    // Inicia ícones
+    lucide.createIcons();
+
+    // Scroll Navbar
+    const nav = document.getElementById('navbar');
+    const links = document.querySelectorAll('.nav-link');
+    const logo = document.getElementById('logo-text');
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        nav.classList.add('glass', 'py-4', 'shadow-lg', 'border-b', 'border-white/20');
+        nav.classList.remove('py-6', 'bg-transparent');
+        logo.classList.replace('text-white', 'text-ocean');
+        mobileBtn.classList.replace('text-white', 'text-ocean');
+        links.forEach(l => l.classList.replace('text-white', 'text-ocean'));
+      } else {
+        nav.classList.remove('glass', 'py-4', 'shadow-lg', 'border-b', 'border-white/20');
+        nav.classList.add('py-6', 'bg-transparent');
+        logo.classList.replace('text-ocean', 'text-white');
+        mobileBtn.classList.replace('text-ocean', 'text-white');
+        links.forEach(l => l.classList.replace('text-ocean', 'text-white'));
+      }
+    });
+
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+    
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    // Fade-in animation
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
+
+    // WhatsApp Form Submit
+    const waForm = document.getElementById('whatsapp-form');
+    if(waForm) {
+      waForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const nome = document.getElementById('wa-nome').value;
+        const nivel = document.getElementById('wa-nivel').value;
+        const mensagem = `Olá! Meu nome é ${nome}, sou nível ${nivel} e gostaria de realizar minha inscrição para as aulas da manhã.`;
+        const url = `https://wa.me/5512988615533?text=${encodeURIComponent(mensagem)}`;
+        window.open(url, '_blank');
+      });
+    }
+  </script>
+</body>
+</html>
