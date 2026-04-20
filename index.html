@@ -18,8 +18,8 @@
             },
             colors: {
               ocean: '#0f172a',
-              gold: '#d4af37',
-              'gold-light': '#fef3c7',
+              gold: '#38bdf8',
+              'gold-light': '#e0f2fe',
               sand: '#f8fafc',
             }
           }
@@ -66,8 +66,9 @@
   <!-- NAVBAR -->
   <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-6 bg-transparent">
     <div class="container-custom flex justify-between items-center">
-      <div id="logo-text" class="text-2xl font-display font-black tracking-tighter text-white">
-        SIENA <span class="text-gold">BEACH</span> CLUB
+      <div class="flex items-center gap-3">
+        <img src="logo.jpg" alt="Siena Beach Club Logo" class="h-16 w-16 md:h-20 md:w-20 rounded-full object-cover shadow-[0_0_15px_rgba(56,189,248,0.5)] border border-white/20 transition-all">
+        <div id="logo-text" class="hidden"></div>
       </div>
       <div class="hidden md:flex items-center gap-8">
         <a href="#sobre" class="nav-link text-xs font-bold uppercase tracking-widest hover:text-gold transition-colors text-white">O Clube</a>
@@ -289,7 +290,9 @@
     <div class="container-custom">
       <div class="grid lg:grid-cols-4 gap-16 mb-20 fade-in">
         <div class="lg:col-span-1">
-          <div class="text-2xl font-display font-black tracking-tighter text-ocean mb-8">SIENA <span class="text-gold">BEACH</span> CLUB</div>
+          <div class="flex items-center gap-3 mb-8">
+            <img src="logo.jpg" alt="Siena Beach Club Logo" class="h-20 w-20 rounded-full object-cover shadow-[0_0_15px_rgba(56,189,248,0.3)] transition-all">
+          </div>
           <p class="text-gray-500 mb-8 leading-relaxed text-sm">A experiência definitiva em Beach Tennis. Transformando qualidade de vida através do esporte premium.</p>
           <div class="flex gap-4">
             <a href="https://instagram.com/sienabeachclub" target="_blank" class="w-10 h-10 rounded-xl bg-sand flex items-center justify-center text-gold hover:bg-gold hover:text-white transition-all"><i data-lucide="instagram" class="w-5 h-5"></i></a>
